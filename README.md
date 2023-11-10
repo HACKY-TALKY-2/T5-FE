@@ -2,7 +2,7 @@
 HackyTallky-Team5-Front
 
 
-##Table of Contents
+## Table of Contents
 - 프로젝트 소개
 - 개발기간
 - 주요 기능
@@ -15,7 +15,7 @@ HackyTallky-Team5-Front
 - License
 - Acknowledgements
 
-##프로젝트 소개
+## 프로젝트 소개
 사용자가 지역관련 이미지 퍼즐을 모으면 지역 상권에서 리워드 주는 앱
 
 ## 개발기간
