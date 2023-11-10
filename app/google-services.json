@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "154287065216",
+    "project_id": "hackytalky",
+    "storage_bucket": "hackytalky.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:154287065216:android:517c93c76b99540986fe65",
+        "android_client_info": {
+          "package_name": "org.techtown.hackytalky"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLS_5doDx3zLTc2NVvG-SltGZTP5WzaiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
