@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
             Puzzle puzzle = user.getPuzzle();
             for (Piece piece : puzzle.getPieces()) {
                 Log.d("TAG123", String.valueOf(piece.getIndex()));
-                puzzleList.get(piece.getIndex() + 5).setImageResource(R.drawable.channel_06);
+                puzzleList.get(piece.getIndex()).setImageResource(R.drawable.channel_06);
             }
 
         });
