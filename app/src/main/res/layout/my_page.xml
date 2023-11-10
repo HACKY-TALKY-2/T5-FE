@@ -16,9 +16,170 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
-                    android:text="마이페이지"
-                    android:textSize="18dp"
+                    android:text="내 정보"
+                    android:textStyle="bold"
+                    android:textSize="24dp"
                     android:fontFamily="@font/eastarjetmedium"
                     android:includeFontPadding="false" />
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp">
+                <TextView
+                    android:id="@+id/username"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="이름"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/eastarjetmedium"
+                    android:includeFontPadding="false" />
+                <TextView
+                    android:id="@+id/message"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:text="메세지"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/eastarjetmedium"
+                    android:includeFontPadding="false" />
+            </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="16dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="보상 목록"
+                android:textStyle="bold"
+                android:textSize="24dp"
+                android:fontFamily="@font/eastarjetmedium"
+                android:includeFontPadding="false" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/channel_01"
+                android:background="@drawable/img_round"
+                android:layout_margin="2dp"
+                android:adjustViewBounds="true" />
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="서초동 카페 10% 할인 쿠폰"
+                android:textSize="18dp"
+                android:fontFamily="@font/eastarjetmedium"
+                android:includeFontPadding="false" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/channel_01"
+                android:background="@drawable/img_round"
+                android:layout_margin="2dp"
+                android:adjustViewBounds="true" />
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="독산동 카페 7% 할인 쿠폰"
+                android:textSize="18dp"
+                android:fontFamily="@font/eastarjetmedium"
+                android:includeFontPadding="false" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/channel_01"
+                android:background="@drawable/img_round"
+                android:layout_margin="2dp"
+                android:adjustViewBounds="true" />
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="서초동 카페 5% 할인 쿠폰"
+                android:textSize="18dp"
+                android:fontFamily="@font/eastarjetmedium"
+                android:includeFontPadding="false" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/channel_01"
+                android:background="@drawable/img_round"
+                android:layout_margin="2dp"
+                android:adjustViewBounds="true" />
+            <TextView
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:text="신림동 카페 10% 할인 쿠폰"
+                android:textSize="18dp"
+                android:fontFamily="@font/eastarjetmedium"
+                android:includeFontPadding="false" />
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>

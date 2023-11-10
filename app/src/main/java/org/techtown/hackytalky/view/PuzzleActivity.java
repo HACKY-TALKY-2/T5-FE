@@ -2,6 +2,7 @@ package org.techtown.hackytalky.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.app.Dialog;
 import android.graphics.Color;
@@ -26,15 +27,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PuzzleActivity extends AppCompatActivity {
-    private ImageView puzzleOne;
-    private ImageView puzzleTwo;
-    private ImageView puzzleThree;
-    private ImageView puzzleFour;
-    private ImageView puzzleFive;
-    private ImageView puzzleSix;
-    private ImageView puzzleSeven;
-    private ImageView puzzleEight;
-    private ImageView puzzleNine;
     private ServiceApi service;
 
     @Override
@@ -43,14 +35,36 @@ public class PuzzleActivity extends AppCompatActivity {
         setContentView(R.layout.frame);
         setHeaderEvent();
         setFooterEvent();
+        getUserData();
 
         Fragment selectedFragment = new HomeFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, selectedFragment)
                 .commit();
-
-        service = RetrofitClient.getClient().create(ServiceApi.class);
     }
+
+    private void getUserData() {
+        service = RetrofitClient.getClient().create(ServiceApi.class);
+        service.userMe(new User("b637f9d7-838b-4026-9e38-2e3e0faf278e", "37.50070054008517", "127.03649436112231")).enqueue(new Callback<UserMeResponse>() {
+            @Override
+            public void onResponse(Call<UserMeResponse> call, Response<UserMeResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    UserMeResponse userMeResponse = response.body();
+                    UserViewModel userViewModel = new ViewModelProvider(PuzzleActivity.this).get(UserViewModel.class);
+                    userViewModel.setUser(userMeResponse);
+                    Toast.makeText(PuzzleActivity.this, "로그인 성공 !", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(PuzzleActivity.this, "Failed to retrieve user data", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserMeResponse> call, Throwable t) {
+                Toast.makeText(PuzzleActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     private void setHeaderEvent() {
         ImageView appIcon = findViewById(R.id.appIcon);
@@ -64,20 +78,6 @@ public class PuzzleActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, selectedFragment)
                         .commit();
-
-                service.userMe(new User()).enqueue(new Callback<UserMeResponse>() {
-                    @Override
-                    public void onResponse(Call<UserMeResponse> call, Response<UserMeResponse> response) {
-                        UserMeResponse result = response.body();
-                        Toast.makeText(PuzzleActivity.this, result.getUser().getUsername(), Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onFailure(Call<UserMeResponse> call, Throwable t) {
-                        Log.d("ERER", t.getMessage());
-                        Toast.makeText(PuzzleActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
             }
         });
 

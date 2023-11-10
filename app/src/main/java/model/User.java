@@ -11,15 +11,18 @@ public class User {
     private String emoji;
     @SerializedName("message")
     private String message;
+    @SerializedName("lat")
+    private String lat;
+    @SerializedName("lng")
+    private String lng;
 
     public User() {
     }
 
-    public User(String id, String username, String emoji, String message) {
+    public User(String id, String lat, String lng) {
         this.id = id;
-        this.username = username;
-        this.emoji = emoji;
-        this.message = message;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     public String getId() {
@@ -36,5 +39,13 @@ public class User {
 
     public String getMessage() {
         return message;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public String getLng() {
+        return lng;
     }
 }
