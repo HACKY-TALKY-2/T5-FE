@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         if (intent.getAction().equals(NfcAdapter.ACTION_TAG_DISCOVERED)) {
-            Log.d("NFC Log", "ACTION_TAG_DISCOVERED");
+            Log.d("NFC Log", ByteArrayToHexString(intent.getByteArrayExtra(NfcAdapter.EXTRA_ID)));
         }
     }
 
