@@ -19,7 +19,7 @@
                     android:textSize="24dp"
                     android:fontFamily="@font/eastarjetmedium"
                     android:includeFontPadding="false"
-                    android:text="안녕하세요, 톡기님!\n오늘도 퍼즐 조각을 모아봐요.">
+                    android:text="안녕하세요!\n오늘도 퍼즐 조각을 모아봐요.">
                 </TextView>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -156,7 +156,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="7 / 9"
+                    android:text="1 / 9"
                     android:textStyle="bold"
                     android:textSize="24dp"
                     android:fontFamily="@font/eastarjetmedium"
