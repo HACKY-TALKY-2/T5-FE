@@ -11,10 +11,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.techtown.hackytalky.R;
 
@@ -50,8 +55,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(MainActivity.this, PuzzleActivity.class);
-        startActivity(intent);
+        Button mainButton = findViewById(R.id.main_button);
+
+        mainButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Intent intent = new Intent(MainActivity.this, PuzzleActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        FirebaseMessaging.getInstance().getToken().addOnSuccessListener(new OnSuccessListener<String>() {
+            @Override
+            public void onSuccess(String token) {
+                Log.d("FCM Log", "Refreshed token: "+token);
+                // 토큰 값 받아옴!!!
+            }
+        });
     }
 
     @Override
