@@ -1,13 +1,9 @@
 package org.techtown.hackytalky.view;
 
-import static androidx.core.content.ContentProviderCompat.requireContext;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.app.Activity;
 import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -17,12 +13,17 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.techtown.hackytalky.R;
 
+import model.UserMeResponse;
 import model.User;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PuzzleActivity extends AppCompatActivity {
     private ImageView puzzleOne;
@@ -34,6 +35,7 @@ public class PuzzleActivity extends AppCompatActivity {
     private ImageView puzzleSeven;
     private ImageView puzzleEight;
     private ImageView puzzleNine;
+    private ServiceApi service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,8 @@ public class PuzzleActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, selectedFragment)
                 .commit();
+
+        service = RetrofitClient.getClient().create(ServiceApi.class);
     }
 
     private void setHeaderEvent() {
@@ -60,6 +64,20 @@ public class PuzzleActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction()
                         .replace(R.id.fragment_container, selectedFragment)
                         .commit();
+
+                service.userMe(new User()).enqueue(new Callback<UserMeResponse>() {
+                    @Override
+                    public void onResponse(Call<UserMeResponse> call, Response<UserMeResponse> response) {
+                        UserMeResponse result = response.body();
+                        Toast.makeText(PuzzleActivity.this, result.getUser().getUsername(), Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<UserMeResponse> call, Throwable t) {
+                        Log.d("ERER", t.getMessage());
+                        Toast.makeText(PuzzleActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

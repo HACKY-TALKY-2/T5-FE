@@ -1,19 +1,40 @@
 package model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class User {
-    private String userName;
-    private String userLocation;
+    @SerializedName("id")
+    private String id;
+    @SerializedName("username")
+    private String username;
+    @SerializedName("emoji")
+    private String emoji;
+    @SerializedName("message")
+    private String message;
 
-    public User(String userName, String userLocation){
-        this.userName = userName;
-        this.userLocation = userLocation;
+    public User() {
     }
 
-    public String getUserName(){
-        return userName;
+    public User(String id, String username, String emoji, String message) {
+        this.id = id;
+        this.username = username;
+        this.emoji = emoji;
+        this.message = message;
     }
 
-    public String getUserLocation(){
-        return userLocation;
+    public String getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getEmoji() {
+        return emoji;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }
