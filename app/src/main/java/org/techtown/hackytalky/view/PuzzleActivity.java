@@ -38,26 +38,31 @@ public class PuzzleActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_puzzle);
-        setPuzzleRadius();
+        setContentView(R.layout.frame);
         setHeaderEvent();
         setFooterEvent();
-    }
-    private void setPuzzleRadius(){
-        findViewById(R.id.puzzle1).setClipToOutline(true);
-        findViewById(R.id.puzzle2).setClipToOutline(true);
-        findViewById(R.id.puzzle3).setClipToOutline(true);
-        findViewById(R.id.puzzle4).setClipToOutline(true);
-        findViewById(R.id.puzzle5).setClipToOutline(true);
-        findViewById(R.id.puzzle6).setClipToOutline(true);
-        findViewById(R.id.puzzle7).setClipToOutline(true);
-        findViewById(R.id.puzzle8).setClipToOutline(true);
-        findViewById(R.id.puzzle9).setClipToOutline(true);
+
+        Fragment selectedFragment = new HomeFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, selectedFragment)
+                .commit();
     }
 
     private void setHeaderEvent() {
+        ImageView appIcon = findViewById(R.id.appIcon);
         ImageView userIcon = findViewById(R.id.userIcon);
         ImageView testIcon = findViewById(R.id.testIcon);
+
+        appIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment selectedFragment = new HomeFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, selectedFragment)
+                        .commit();
+            }
+        });
+
         userIcon.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -119,14 +124,17 @@ public class PuzzleActivity extends AppCompatActivity {
                 int id = item.getItemId();
 
                 if (id == R.id.home) {
-                    // TODO
+                    selectedFragment = new HomeFragment();
                 } else if (id == R.id.myPuzzle) {
-                    // TODO
+                    selectedFragment = new MyPuzzleFragment();
                 } else if (id == R.id.myPage) {
-                    // TODO
+                    selectedFragment = new MyPageFragment();
                 } else {
                     return false;
                 }
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, selectedFragment)
+                        .commit();
                 return true;
             }
         });
